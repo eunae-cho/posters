@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Font -->
+    <link rel="stylesheet" href="https://use.typekit.net/njp6ssv.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oi&family=Rubik+Puddles&display=swap">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');</style>
+    
+    
+    <link rel="stylesheet" href="./style.css">
+    
+    <title>WEATHER POSTERS</title>
+    </head>
+    <body>
+        <!-- SUNNY -->
+        <section id="weather-is-sunny"  data-weather="sunny" >
+            <section class="background">
+                <div class="sun">
+                    <img class="sun-light" src="./asset/line.svg">
+                </div>
+            </section>
+            
+            <section class="weather-sec">
+                <h1 class="weather-kor"  data-weather="sunny">맑음</h1>
+                <h2 class="weather-eng"  data-weather="sunny">SUNNY</h2>
+            </section>
+        </section>
+
+        <!-- SNOW -->
+        <section id="weather-is-snowy" data-weather="snowy">
+            <section class="background" >
+                <div class="bg-snow"></div>
+            </section>
+            
+            <section class="weather-sec">
+                <h1 class="weather-kor" data-weather="snowy">눈</h1>
+                <h2 class="weather-eng" data-weather="snowy">SNOW</h2>
+            </section>
+        </section>
+
+        <!-- RAINY -->
+        <section id="weather-is-rainy" data-weather="rainy">
+            <section class="background">
+                <div class="bg-gradient-1" data-weather="rainy"></div>
+                <div class="bg-gradient-2" data-weather="rainy"></div>
+                <div class="bg-gradient-1" data-weather="rainy"></div>
+                <div class="bg-gradient-2" data-weather="rainy"></div>
+            </section>
+            
+            <section class="raindrops">
+                <div class="rain-holder">
+                    <svg width="80" height="414" viewBox="0 0 80 414" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M72 2L8 412" stroke="#76F1A7" stroke-width="15" pathLength="1"/>
+                    </svg>
+                    <svg width="80" height="414" viewBox="0 0 80 414" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M72 2L8 412" stroke="#76F1A7" stroke-width="15" pathLength="1"/>
+                    </svg>
+                    <svg width="80" height="414" viewBox="0 0 80 414" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M72 2L8 412" stroke="#76F1A7" stroke-width="15" pathLength="1"/>
+                    </svg>
+                    <svg width="80" height="414" viewBox="0 0 80 414" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M72 2L8 412" stroke="#76F1A7" stroke-width="15" pathLength="1"/>
+                    </svg>
+                    <svg width="80" height="414" viewBox="0 0 80 414" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M72 2L8 412" stroke="#76F1A7" stroke-width="15" pathLength="1"/>
+                    </svg>
+                </div>
+            </section>
+    
+            <section class="title-weather">
+                <h1 class="weather-kor" data-weather="rainy">비</h1>
+                <h2 class="weather-eng" data-weather="rainy">RAIN</h2>
+            </section>
+        </section>
+
+        <!-- CLOUDY -->
+        <section id="weather-is-cloudy"  data-weather="cloudy">
+            <section class="background">
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+            </section>
+            
+            <section class="weather-sec">
+                <h1 class="weather-kor" data-weather="cloudy">구름</h1>
+                <h2 class="weather-eng" data-weather="cloudy">CLOUDY</h2>
+            </section>
+        </section>
+
+        <!-- 고정 섹션 -->
+        <section class="info-sec">
+            <div class="info-1">
+                <p class="latitude">37°33'58.87"N</p>
+                <p class="longtitude">126°58'40.63"E</p>
+            </div>
+
+            <div class="info-2">
+                <div class="month-num">09</div>
+                <div class="month">月</div>
+                <div class="date-num">22</div>
+                <div class="date">日</div>
+            </div>
+
+            <div class="info-3">
+                <p class="location">Gangnam-gu, Seoul</p>
+                <p class="time">14:00 03/10/2022</p>
+            </div>
+        </section>
+        
+
+            <script src="./script.js"></script>
+
+    </body>
+</html>
