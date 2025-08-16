@@ -1,26 +1,34 @@
-document.body.dataset.weather = "cloudy";
+const weather = ['sunny', 'snowy', 'rainy', 'cloudy'];
 
-var weather = document.body.dataset.weather;
+// js로 요소 child 가지고와서 -> 1,2,3,4로 날씨 순서 정하기.
+document.body.dataset.weather = "sunny";
+var dataWeather = document.body.dataset.weather;
 
-const $background = document.querySelector(`#weather-is-${weather} .background`);
+const $picker = document.querySelector('#choose-weather>ul');
+const $background = document.querySelector(`#weather-is-${dataWeather} .background`);
 const $sun = document.querySelector(".sun");
 const $sunLight = document.querySelector(".sun-light");
 
-if(weather=="sunny") {
+$picker.addEventListener("click", selectWeather);
+
+if(dataWeather=="sunny") {
+    $picker.children[0].style.background='none';
+    $picker.children[0].style.color='#000';
+
     document.querySelector("#weather-is-snowy").style.display = 'none';
     document.querySelector("#weather-is-rainy").style.display = 'none';
     document.querySelector("#weather-is-cloudy").style.display = 'none';
     $background.style.background=`linear-gradient(90deg, #BCCCD1, #E8E1E1, #FFFFF2)`;
     $background.addEventListener("mousemove", traceMouse);
 }
-else if(weather=="snowy") {
+else if(dataWeather=="snowy") {
     document.querySelector("#weather-is-sunny").style.display = 'none';
     document.querySelector("#weather-is-rainy").style.display = 'none';
     document.querySelector("#weather-is-cloudy").style.display = 'none';
     $background.style.background=`rgb(240, 255, 244)`;
     $background.addEventListener("click", drawSnow);
 }
-else if(weather=="rainy") {
+else if(dataWeather=="rainy") {
     document.querySelector("#weather-is-sunny").style.display = 'none';
     document.querySelector("#weather-is-snowy").style.display = 'none';
     document.querySelector("#weather-is-cloudy").style.display = 'none';
@@ -29,7 +37,7 @@ else if(weather=="rainy") {
     $background.style.display = 'flex';
     window.addEventListener("mousewheel", scrollBack);
 }
-else if(weather=="cloudy") {
+else if(dataWeather=="cloudy") {
     document.querySelector("#weather-is-sunny").style.display = 'none';
     document.querySelector("#weather-is-snowy").style.display = 'none';
     document.querySelector("#weather-is-rainy").style.display = 'none';
@@ -37,13 +45,34 @@ else if(weather=="cloudy") {
     $background.addEventListener("click", drawRounds);
 }
 
+function selectWeather(e) {
+    document.body.dataset.weather = e.target.id;
+    dataWeather = document.body.dataset.weather;
+
+    console.log(dataWeather);
+
+    //weather값에 맞게 리렌더링
+    
+
+    //클릭시 다른 요소들은 회색 배경, 클릭한 것은 검은 컬러
+    [...$picker.children].forEach((child, i)=> {
+        console.log(i);
+        child.style.background='rgba(182, 182, 182, 0.284)';
+        child.style.color='#fff';
+    })
+    e.target.style.background='none';
+    e.target.style.color='#000';
+
+    console.log(e);
+}
+
 
 function traceMouse(e) {
     $sunLight.style.top = `${e.screenY}px`;
-    $sunLight.style.left = `${e.screenX}px`;
+    $sunLight.style.left = `${e.clientX/2}px`;
 
     var lightX = e.screenX/$sun.clientWidth * 32;
-    var lightY = e.screenX/$sun.clientHeight * 32;
+    var lightY = e.screenY/$sun.clientHeight * 32;
     
     $sun.style.boxShadow = `inset ${lightX}px ${lightY}px 32px  #ff919179`;
 }
@@ -99,7 +128,6 @@ function drawRounds() {
         round.style.height = `${Math.random()*400}px`;
         round.style.borderRadius = '100%';
         round.style.border = `solid 1px rgb(255, 255, 255)`;
-        
         
         $background.appendChild(round);
 }
