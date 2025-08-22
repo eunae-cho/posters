@@ -4,19 +4,6 @@
     --purple: #6B2BF4;
 }
 
-body[data-weather="sunny"] #weather-is-sunny {
-    visibility: visible;
-}
-body[data-weather="snowy"] #weather-is-snowy {
-    visibility: visible;
-}
-body[data-weather="rainy"] #weather-is-rainy {
-    visibility: visible;
-}
-body[data-weather="cloudy"] #weather-is-cloudy {
-    visibility: visible;
-}
-
 * {
     box-sizing: border-box;
     position: relative;
@@ -24,7 +11,6 @@ body[data-weather="cloudy"] #weather-is-cloudy {
     padding: 0;
     font-size:24px;
 }
-
 
 body {
     width: 100vw;
@@ -37,8 +23,35 @@ body {
     overflow: hidden;
 }
 
-h1 {
-    font-size: 16px;
+#weather-is-sunny, #weather-is-snowy, #weather-is-rainy, #weather-is-cloudy {
+    display: none;
+    width: 1440px;
+    height: 1440px;
+}
+
+body[data-weather="sunny"] #weather-is-sunny {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+body[data-weather="snowy"] #weather-is-snowy {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+body[data-weather="rainy"] #weather-is-rainy {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+body[data-weather="cloudy"] #weather-is-cloudy {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #choose-weather {
@@ -65,21 +78,32 @@ h1 {
     font-size: 1.8rem;
     
 }
-/* 
-#choose-weather>ul>li:hover {
-    border: solid 2px rgba(0, 0, 0, 0.943);
-    background-color: #ffffff;
-    color: rgba(0, 0, 0, 0.943);
-} */
 
-.background {
+body[data-weather="sunny"] section .background {
     width: 100vw;
     height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
+    background: linear-gradient(90deg, #BCCCD1, #E8E1E1, #FFFFF2);
+}
+body[data-weather="snowy"] section .background {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(90deg, #BCCCD1, #E8E1E1, #FFFFF2);
+}
+body[data-weather="rainy"] section .background {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(90deg, #BCCCD1, #E8E1E1, #FFFFF2);
+}
+body[data-weather="cloudy"] section .background {
+    width: 100vw;
+    height: 100vh;
+    background-color: #3E88CC;
+    z-index: 0;
 }
 
+/* sunny */
 .sun {
     position: fixed;
     top: 3.37rem;
@@ -97,6 +121,7 @@ h1 {
     height: 34vw;
 }
 
+/* rainy */
 .bg-gradient-1 {
     width: 25vw;
     height: 50%;
@@ -153,7 +178,7 @@ h1 {
     left: 50vw;
 }
 
-
+/* cloudy */
 .cloud{
     position: fixed;
     border-radius: 100%;
@@ -224,8 +249,13 @@ h1 {
     animation: cloudMoves1 10s ease infinite;
 }
 
-
 .weather-sec {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    padding: 1.87rem;
     pointer-events: none;
 }
 
@@ -253,7 +283,7 @@ h1 {
     font-family: "Oi", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 13rem;
+    font-size: 12rem;
     height: fit-content;
 }
 
@@ -274,11 +304,10 @@ h1 {
     font-family: "Rubik Puddles", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: 13.5rem;
+    font-size: 12rem;
     height: fit-content;
     color: var(--pink);
 }
-
 
 .info-sec {
     position: fixed;
