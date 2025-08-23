@@ -9,8 +9,8 @@ let $background;
 const $sun = document.querySelector(".sun");
 const $sunLight = document.querySelector(".sun-light");
 
-
-function setBack() {
+// document.getElementsByTagName
+function setBack(e) {
     console.log("call::setBack");
 
     if(dataWeather==('sunny')) {
@@ -29,20 +29,22 @@ function setBack() {
 }
 
 function selectWeather(e) {
-    dataWeather = e.target.id;
-    $body.setAttribute('data-weather', e.target.id);
-    $background = document.querySelector(`#weather-is-${dataWeather} .background`);
+    if(e.target.tagName !== 'UL') {
+        dataWeather = e.target.id;
+        $body.setAttribute('data-weather', e.target.id);
+        $background = document.querySelector(`#weather-is-${dataWeather} .background`);
 
-    setBack();
+        setBack();
 
-    //클릭시 다른 요소들은 회색 배경, 클릭한 것은 검은 컬러
-    [...$picker.children].forEach((child)=> {
-        child.style.background='rgba(182, 182, 182, 0.284)';
-        child.style.color='#fff';
-    })
+        //클릭시 다른 요소들은 회색 배경, 클릭한 것은 검은 컬러
+        [...$picker.children].forEach((child)=> {
+            child.style.background='rgba(182, 182, 182, 0.284)';
+            child.style.color='#fff';
+        })
 
-    e.target.style.background='none';
-    e.target.style.color='#000';
+        e.target.style.background='none';
+        e.target.style.color='#000';
+    }
 }
 
 
